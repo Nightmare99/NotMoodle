@@ -1,22 +1,25 @@
 html
     head
-        title Login
+        title Register 
         include headers
     body(class="red lighten-1")
         div(class="container")
             div(class="row")
                 div(class="col s12")
                     div(class="card-panel hoverable")
-                        h1 Hello
-                        h4 Enter your credentials:
-                        form(method="POST", action="/login")
+                        h1 Register
+                        h4 It's free :)
+                        form(method="POST", action="/register_user")
                             p(class="red-text") #{message}
                             br
                             p Username:
                             input(type="text",name="username",placeholder="Username") 
+                            p Full name:
+                            input(type="text",name="name",placeholder="Full name")
+                            p Email ID:
+                            input(type="text",name="email",placeholder="Email ID")
                             p Password:
                             input(type="password",name="password",placeholder="Password")
                             br
                             br
-                            button(type="submit",class="btn waves-effect waves-light") Log in
-                            a(href="/register_user",class="btn waves-effect waves-light right") Create an account
+                            button(type="submit",class="btn waves-effect waves-light") Register

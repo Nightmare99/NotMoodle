@@ -162,7 +162,25 @@ function removeAuthoredCourse(id, user) {
     });
     return promise;
 }
- 
+
+function createNewUser(user) {
+    const promise = new Promise((resolve, reject) => {
+        let users = getParsedData("data/users.json");
+        users
+            .then((data) => {
+                for(i of data) if(i.username == user.username) reject();
+                data.push(user);
+                fs.writeFile("data/users.json", JSON.stringify(data), (err) => {
+                    if(err) console.log(err);
+                    resolve();
+                });
+            });
+    });
+    return promise;
+    
+}
+
+module.exports.createNewUser = createNewUser;
 module.exports.getCourses = getCourses;
 module.exports.getParsedData = getParsedData;
 module.exports.courseDetails = courseDetails;

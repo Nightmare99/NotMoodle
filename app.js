@@ -18,6 +18,27 @@ app.get("/", (req, res) => {
     return res.redirect("/login");
 });
 
+app.get("/register_user", (req, res) => {
+    res.render("register_user");
+});
+
+app.post("/register_user", (req, res) => {
+    if(req.session.user) return res.redirect("/home");
+    req.body.coursesRegistered = {};
+    req.body.coursesAuthored = [];
+    req.body.type = "student";
+    promise = fileops.createNewUser(req.body);
+    promise
+        .then(() => {
+            return res.redirect("/login");
+        })
+        .catch(() => {
+            res.render("register_user", {
+                message: "Username already taken. Try again."
+            });
+        });
+});
+
 app.get("/login", (req, res) => {
     if(req.session.user) return res.redirect("/home");
     res.render("login");
