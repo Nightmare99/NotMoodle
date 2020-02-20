@@ -1,6 +1,6 @@
  # NotMoodle
  Made using ExpressJS and friends.
- Only one type of user - can create courses as well enroll in courses. Similar to Google Classrooms.
+ Only one type of user - can create courses as well as enroll in courses. Similar to Google Classrooms.
  ## Dependencies
  - NodeJS
  - NPM
