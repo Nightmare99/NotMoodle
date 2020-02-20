@@ -1,0 +1,17 @@
+div(class="nav-fixed")
+    nav
+        div(class="nav-wrapper")
+            a(href="#",class="brand-logo") NotMoodle
+            ul(class="right hide-on-med-and-down")
+                li 
+                    a(href="/list_courses") Register new courses
+                li 
+                    a(href="/new_course") Create new course
+                li 
+                    a(href="/home") My Courses
+                li
+                    a(href="/profile") Profile
+                li
+                    form(method="POST",action="/home",style="display:inline;")
+                        button(type="submit",class="btn-flat white-text") Logout
+        

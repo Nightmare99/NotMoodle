@@ -1,0 +1,30 @@
+[
+    {
+        "username" : "test",
+        "name" : "test user 1",
+        "password" : "test123",
+        "email" : "test1@example.com",
+        "type" : "Student",
+        "coursesRegistered" : {
+            "1001" : "Prof. ABC", 
+            "1002" : "Prof. PQR"
+        },
+        "coursesAuthored" : [
+            "1002", "1001"
+        ]
+    },
+    {
+        "username" : "test2",
+        "name" : "test user 2",
+        "password" : "test456",
+        "email" : "test2@example.com",
+        "type" : "Student",
+        "coursesRegistered" : {
+            "1001" : "Prof. AAA", 
+            "1002" : "Prof. BBB"
+        },
+        "coursesAuthored" : [
+            "1002"
+        ]
+    }
+]

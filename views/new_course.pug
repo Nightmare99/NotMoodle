@@ -1,0 +1,27 @@
+html
+    head
+        title New course
+        include headers
+    body
+        include base
+        div(class="container")
+            div(class="row") 
+                h1 Enter course details:
+            div(class="row")
+                div(class="col s12")
+                    div(class="card-panel hoverable")
+                        form(method="POST", action="/new_course")
+                            p(class="red-text") #{message}
+                            p Course code:
+                            input(type="text",name="id",placeholder="Course code") 
+                            p Course name:
+                            input(type="text",name="name",placeholder="Course name")
+                            p Start date:
+                            input(type="text",name="start",placeholder="Start date")
+                            p End date:
+                            input(type="text",name="end",placeholder="End date")
+                            p Description:
+                            textarea(name="desc",placeholder="Course description")
+                            br
+                            br
+                            button(type="submit",class="btn waves-effect waves-light") Create

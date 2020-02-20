@@ -1,0 +1,24 @@
+{
+  "name": "midvap",
+  "version": "1.0.0",
+  "description": "MidVAP project for the PayPal VAP",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --ignore 'data/*.json' app.js"
+  },
+  "keywords": [
+    "midvap",
+    "portal",
+    "online"
+  ],
+  "author": "vishal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "pug": "^2.0.4"
+  }
+}

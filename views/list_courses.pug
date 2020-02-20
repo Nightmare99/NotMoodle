@@ -1,0 +1,18 @@
+html
+    head
+        title Register new course
+        include headers
+    body
+        include base
+        div(class="container")
+            div(class="row") 
+                h1 Courses offered:
+            div(class="row")
+            if courses.length == 0
+                h4(class="red-text") No available courses for now. Check back later.
+            each course in courses
+                - var courseURL = "location.href='register/" + course.id + "'";
+                div(class="col s12",onclick=courseURL)
+                    div(class="card-panel hoverable")
+                        h4 #{course.id} - #{course.name}
+                        p #{course.desc}

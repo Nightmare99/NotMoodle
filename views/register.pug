@@ -1,0 +1,23 @@
+html
+    head
+        title Course #{id}
+        include headers
+    body
+        include base
+        div(class="container")
+            div(class="row") 
+                h1 #{id} - #{course.name} 
+            div(class="row")
+                div(class="col s12")
+                    div(class="card-panel hoverable")
+                        h6(class="blue-text") #{course.start} - #{course.end}
+                        form(method="POST",action="/register")
+                            p Choose Professor:
+                            select(name="prof",class="browser-default")
+                                each i in course.offeredBy 
+                                    option(value=i) #{i}
+                            br
+                            br
+                            input(type="hidden",name="id",value=id)
+                            button(type="submit",class="btn waves-effect waves-light") Register
+                        p #{course.desc}
