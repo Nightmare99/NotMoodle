@@ -61,7 +61,7 @@
  
  Register courses:
  ![Register](/screenshots/Register.png)
- ![Register1](/screenshots/Register1.png)
+ ![Register1](/screenshots/Register2.png)
  
  Create a course:
  ![Create](/screenshots/Create.png)
