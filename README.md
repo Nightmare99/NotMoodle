@@ -28,12 +28,12 @@
  
  ## A brief peek under the hood
  There are 3 main components of this app:
- - The views (inside /views) which are pug templates controlled by app.js
- - The databases (inside /data) which are json files
-    - 2 files - one for users (users.json) and one for courses (courses.json). 
- - Business logic - mostly in fileops.js
+ - The views (inside ```/views```) which are pug templates controlled by ```app.js```
+ - The databases (inside ```/data```) which are json files
+    - 2 files - one for users (```users.json```) and one for courses (```courses.json```). 
+ - Business logic - mostly in ```fileops.js```
  
- fileops.js has most of the frequently used functions. They are described below:
+ ```fileops.js``` has most of the frequently used functions. They are described below:
  
  - ```createNewUser(user)``` - add new user details to users.json, used to implement new user registration.
  - ```getParsedData(filename)``` - read json file 'filename', parse its contents and return a javascript object.
