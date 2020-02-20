@@ -114,7 +114,6 @@ function removeCourse(id, user) {
             .then((data) => {
                 for(i of data) {
                     if(i.username == user.username) {
-                        //i.coursesRegistered == _.omit(i.coursesRegistered, id);
                         i.coursesRegistered[id] = undefined;
                         i.coursesRegistered = JSON.parse(JSON.stringify(i.coursesRegistered));
                         console.log(id);
@@ -131,9 +130,43 @@ function removeCourse(id, user) {
     return promise;
 }
 
+function removeAuthoredCourse(id, user) {
+    user.coursesAuthored.splice(user.coursesAuthored.indexOf(id), 1 );
+    const promise = new Promise((resolve, reject) => {
+        let users = getParsedData("data/users.json");
+        users
+            .then((data) => {
+                for(i of data) {
+                    if(i.username == user.username) {
+                        i.coursesAuthored.splice(i.coursesAuthored.indexOf(id));
+                    }
+                    else {
+                        i.coursesRegistered[id] = undefined;
+                        i.coursesRegistered = JSON.parse(JSON.stringify(i.coursesRegistered));
+                    }
+                }
+                fs.writeFile("data/users.json", JSON.stringify(data), (err) => {
+                    if(err) console.log(err);
+                });
+                let courses = getParsedData("data/courses.json");
+                courses
+                    .then((data) => {
+                        data[id] = undefined;
+                        data = JSON.parse(JSON.stringify(data));
+                        fs.writeFile("data/courses.json", JSON.stringify(data), (err) => {
+                            if(err) console.log(err);
+                            resolve();
+                        });
+                    });
+            });
+    });
+    return promise;
+}
+ 
 module.exports.getCourses = getCourses;
 module.exports.getParsedData = getParsedData;
 module.exports.courseDetails = courseDetails;
 module.exports.getUnregisteredCourses = getUnregisteredCourses;
 module.exports.addCourse = addCourse;
 module.exports.removeCourse = removeCourse;
+module.exports.removeAuthoredCourse = removeAuthoredCourse;

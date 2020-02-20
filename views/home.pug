@@ -12,7 +12,7 @@ html
             if courses.length == 0
                 p(class="red-text") No courses registered.
             each course in courses
-                - var courseURL = "location.href='course/" + course.id + "'";
+                - var courseURL = "location.href='course/" + course.id + "/registered'";
                 div(class="col s12",onclick=courseURL)
                     div(class="card-panel hoverable")
                         h4 #{course.id} - #{course.name}
@@ -25,7 +25,7 @@ html
             if auth.length == 0
                 p(class="red-text") You don't teach any classes.
             each course in auth
-                - var courseURL = "location.href='course/" + course.id + "'";
+                - var courseURL = "location.href='course/" + course.id + "/authored'";
                 div(class="col s12",onclick=courseURL)
                     div(class="card-panel hoverable")
                         h4 #{course.id} - #{course.name}

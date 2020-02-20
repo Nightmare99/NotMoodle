@@ -32,7 +32,7 @@
     - 2 files - one for users and one for courses. 
  - Business logic - mostly in fileops.js
  
- fileops.js has most of the frequently used functions. Some are listed below:
+ fileops.js has most of the frequently used functions. They are described below:
  
  - getParsedData(filename) - read json file 'filename', parse its contents and return a javascript object.
  - getCourses(user) - return all course details of both the courses registered as well as authored by 'user'.
@@ -40,6 +40,7 @@
  - courseDetails(id) - returns course details for course with id='id'.
  - addCourse(id, prof, user) - adds course with id='id' to 'user' under professor 'prof'.
  - removeCourse(id, user) - Removes course with id='id' from 'user'.
+ - removeAuthoredCourse(id, user) - Removes course from all users registered to it and removes it from the author's coursesAuthored list as well.
  
  ## Screenshots
  It's a big app, so I'm including only a few screenshots for representation's sake.

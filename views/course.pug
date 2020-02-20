@@ -15,4 +15,5 @@ html
                         p #{course.desc}
                         form(method="POST",action="/delete")
                             input(type="hidden",name="id",value=id)
+                            input(type="hidden",name="type",value=type)
                             button(type="submit",class="btn waves-effect waves-light") Drop course

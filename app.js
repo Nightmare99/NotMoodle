@@ -73,17 +73,19 @@ app.get("/profile", (req, res) => {
     });
 });
 
-app.get("/course/:id", (req, res) => {
+app.get("/course/:id/:type", (req, res) => {
     if(!req.session.user) return res.redirect("/login");
     var course = fileops.courseDetails(req.params.id);
+    var type = fileops.courseDetails(req.params.type);
     course
         .then((data) => {
             res.render("course", {
                 id: req.params.id,
                 course: data,
-                user: req.session.user
+                user: req.session.user,
+                type: type
             });
-        })
+        });
 });
 
 app.get("/new_course", (req, res) => {
@@ -162,7 +164,6 @@ app.post("/register", (req, res) => {
     promise
         .then(() => {
             req.session.user.coursesRegistered[id] = fac;
-            //window.alert("Course added.")
             return res.redirect("/home");
         })
 });
@@ -170,12 +171,20 @@ app.post("/register", (req, res) => {
 app.post("/delete", (req, res) => {
     if(!req.session.user) return res.redirect("/login");
     var id = req.body.id;
-    var promise = fileops.removeCourse(id, req.session.user);
-    promise
-        .then(() => {
-            //window.alert("Course dropped.")
-            return res.redirect("/home");
-        });
+    if(req.body.type == "registered"){
+        var promise = fileops.removeCourse(id, req.session.user);
+        promise
+            .then(() => {
+                return res.redirect("/home");
+            });
+    }
+    else {
+        var promise = fileops.removeAuthoredCourse(id, req.session.user);
+        promise
+            .then(() => {
+                return res.redirect("/home");
+            });
+    }
 });
 
 app.listen(8080);
